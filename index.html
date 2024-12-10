@@ -1,0 +1,67 @@
+<html>
+	<head>
+	<title>Even Odd App</title>
+	<style>
+		 * { font-size:50px;font-family:Cambria; }
+			h1{ background-color:black;color:white;width:70%;border-radius:20px; }
+			body{ background-color:azure }
+		
+	</style>
+	</head>
+	<body>
+		<center>	
+			<h1>Even Odd Finding App</h1>
+			<form onsubmit="check()">
+				<input type="number"	placeholder="Enter the number"	id="num" />
+			<br/><br/>
+			<input type="submit"		value="Method 1" />
+			<input type="submit"		value="Method 2" />
+			<input type="submit"		value="Method 3" />	
+			</form>
+			<h2 id="msg" />
+			<script>
+				function check(){	
+			event.preventDefault();
+		let num = document.getElementById("num");
+		let msg = document.getElementById("msg");
+		let action= document.activeElement.value;
+			
+				if(num.value==="")
+					{	
+					alert("please enter the number");
+					msg.innerHTML=" ";
+					num.focus();
+					return;
+					}
+					let n= parseInt(num.value);
+			
+				if(action==="Method 1"){
+					let ans = n%2===0 ? "even" : "odd";		
+					msg.innerHTML = " Method 1 ---> " + ans;
+					}	
+				else if(action==="Method 2"){
+					let ans=" " ;
+					if(n%2===0)
+						ans= " Method 2---> even ";
+					else
+						ans="Method 2--> odd";	
+					msg.innerHTML=ans;
+					}
+				else if(action ==="Method 3"){	
+					let ans = "" ;
+					switch(n% 2)
+					{
+					case 0 : ans= "method 3->even";
+						break;
+					case 1 : ans="method 3-->odd";
+						break;
+					default : ans="invalid number";
+					}
+				msg.innerHTML =ans;
+				}
+			}
+			</script>
+		</center>
+	
+	</body>
+</html>
